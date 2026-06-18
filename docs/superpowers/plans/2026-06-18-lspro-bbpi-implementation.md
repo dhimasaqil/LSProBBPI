@@ -244,8 +244,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: 'Layanan Kami',
     children: [
-      { label: 'Alur Proses Sertifikasi Tipe 1', path: '/layanan/sertifikasi-tipe-1' },
-      { label: 'Alur Proses Sertifikasi Tipe 5', path: '/layanan/sertifikasi-tipe-5' },
+      { label: 'Skema Sertifikasi', path: '/layanan/sertifikasi' },
     ],
   },
   { label: 'Ruang Lingkup', path: '/ruang-lingkup' },
@@ -273,8 +272,7 @@ export const ADMIN_PAGES = [
   { name: 'hak-kewajiban', label: 'Hak dan Kewajiban', sections: ['hero', 'hak', 'kewajiban'] },
   { name: 'sumber-pendanaan', label: 'Sumber Pendanaan', sections: ['hero', 'modal', 'pendapatan', 'pengelolaan', 'pengawasan'] },
   { name: 'biaya-sertifikasi', label: 'Biaya Sertifikasi', sections: ['hero', 'biaya'] },
-  { name: 'sertifikasi-tipe-1', label: 'Sertifikasi Tipe 1', sections: ['hero'] },
-  { name: 'sertifikasi-tipe-5', label: 'Sertifikasi Tipe 5', sections: ['hero'] },
+  { name: 'sertifikasi', label: 'Skema Sertifikasi', sections: ['hero', 'skema', 'alur', 'produk', 'dokumen'] },
   { name: 'ruang-lingkup', label: 'Ruang Lingkup', sections: ['hero'] },
   { name: 'kontak', label: 'Kontak', sections: ['hero', 'alamat', 'telepon', 'whatsapp', 'email', 'maps_url', 'facebook', 'instagram', 'youtube', 'linkedin'] },
 ]
@@ -315,8 +313,7 @@ import KeluhanBanding from './pages/informasi/KeluhanBanding'
 import HakKewajiban from './pages/informasi/HakKewajiban'
 import SumberPendanaan from './pages/informasi/SumberPendanaan'
 import BiayaSertifikasi from './pages/informasi/BiayaSertifikasi'
-import SertifikasiTipe1 from './pages/layanan/SertifikasiTipe1'
-import SertifikasiTipe5 from './pages/layanan/SertifikasiTipe5'
+import Sertifikasi from './pages/layanan/Sertifikasi'
 import RuangLingkup from './pages/RuangLingkup'
 import FormDownload from './pages/FormDownload'
 import FormPendaftaran from './pages/FormPendaftaran'
@@ -343,8 +340,7 @@ export default function App() {
           <Route path="informasi/hak-kewajiban" element={<HakKewajiban />} />
           <Route path="informasi/sumber-pendanaan" element={<SumberPendanaan />} />
           <Route path="informasi/biaya-sertifikasi" element={<BiayaSertifikasi />} />
-          <Route path="layanan/sertifikasi-tipe-1" element={<SertifikasiTipe1 />} />
-          <Route path="layanan/sertifikasi-tipe-5" element={<SertifikasiTipe5 />} />
+          <Route path="layanan/sertifikasi" element={<Sertifikasi />} />
           <Route path="ruang-lingkup" element={<RuangLingkup />} />
           <Route path="formulir/download" element={<FormDownload />} />
           <Route path="formulir/pendaftaran" element={<FormPendaftaran />} />
@@ -604,8 +600,7 @@ const footerInfo = [
 ]
 
 const footerLayanan = [
-  { label: 'Sertifikasi Tipe 1', path: '/layanan/sertifikasi-tipe-1' },
-  { label: 'Sertifikasi Tipe 5', path: '/layanan/sertifikasi-tipe-5' },
+  { label: 'Skema Sertifikasi', path: '/layanan/sertifikasi' },
   { label: 'Download Formulir', path: '/formulir/download' },
   { label: 'Form Pendaftaran', path: '/formulir/pendaftaran' },
   { label: 'Kuesioner', path: '/kuesioner' },
@@ -1058,8 +1053,7 @@ import SectionRenderer from '../components/ui/SectionRenderer'
 import CtaStrip from '../components/ui/CtaStrip'
 
 const services = [
-  { icon: ShieldCheck, title: 'Sertifikasi Tipe 1', desc: 'Sertifikasi untuk tipe produk tunggal dengan pengujian sampel.', path: '/layanan/sertifikasi-tipe-1' },
-  { icon: Award, title: 'Sertifikasi Tipe 5', desc: 'Sertifikasi dengan audit sistem manajemen mutu dan pengujian produk.', path: '/layanan/sertifikasi-tipe-5' },
+  { icon: ShieldCheck, title: 'Skema Sertifikasi', desc: 'Skema Tipe 1b/3 untuk sertifikasi benang dan jaring alat penangkapan ikan.', path: '/layanan/sertifikasi' },
   { icon: Search, title: 'Ruang Lingkup', desc: 'Lihat lingkup sertifikasi terakreditasi yang kami layani.', path: '/ruang-lingkup' },
 ]
 
@@ -1077,7 +1071,7 @@ export default function Home() {
               LSPro BBPI adalah lembaga sertifikasi produk yang berkompeten mengeluarkan sertifikat kesesuaian kualitas produk perikanan sesuai standar yang berlaku.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/layanan/sertifikasi-tipe-1"
+              <Link to="/layanan/sertifikasi"
                 className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg">
                 Pelajari Layanan <ArrowRight className="w-4 h-4" />
               </Link>
@@ -1191,8 +1185,7 @@ git commit -m "feat: implement Home page with hero, services, about, and CTA"
 - Modify: `src/pages/informasi/HakKewajiban.tsx`
 - Modify: `src/pages/informasi/SumberPendanaan.tsx`
 - Modify: `src/pages/informasi/BiayaSertifikasi.tsx`
-- Modify: `src/pages/layanan/SertifikasiTipe1.tsx`
-- Modify: `src/pages/layanan/SertifikasiTipe5.tsx`
+- Modify: `src/pages/layanan/Sertifikasi.tsx`
 - Modify: `src/pages/RuangLingkup.tsx`
 
 **Pattern:** All these pages share the same structure: Mini Hero → Content (SectionRenderer) → CTA Strip
@@ -1289,27 +1282,31 @@ export default function Pemeliharaan() {
 
 Implement the other 4 (KeluhanBanding, HakKewajiban, SumberPendanaan, BiayaSertifikasi) similarly with their respective section keys.
 
-- [ ] **Step 4: Implement 2 Layanan pages**
+- [ ] **Step 4: Implement Skema Sertifikasi page**
 
-`src/pages/layanan/SertifikasiTipe1.tsx`:
+`src/pages/layanan/Sertifikasi.tsx`:
 
 ```tsx
 import ContentPage from '../../components/ui/ContentPage'
 
-export default function SertifikasiTipe1() {
+export default function Sertifikasi() {
   return (
     <ContentPage
-      pageKey="sertifikasi-tipe-1"
-      title="Alur Proses Sertifikasi Tipe 1"
-      breadcrumbs={[{ label: 'Beranda', path: '/' }, { label: 'Layanan Kami' }, { label: 'Sertifikasi Tipe 1' }]}
-      description="Prosedur sertifikasi untuk tipe produk tunggal dengan pengujian sampel."
-      sections={[{ key: 'hero', fallback: { judul: 'Alur Proses Sertifikasi Tipe 1', deskripsi: 'Konten akan diisi oleh admin.', gambar_url: '' } }]}
+      pageKey="sertifikasi"
+      title="Skema Sertifikasi"
+      breadcrumbs={[{ label: 'Beranda', path: '/' }, { label: 'Layanan Kami' }, { label: 'Skema Sertifikasi' }]}
+      description="Skema sertifikasi Tipe 1b/3 LSPro BBPI untuk benang dan jaring alat penangkapan ikan."
+      sections={[
+        { key: 'hero', fallback: { judul: 'Skema Sertifikasi LSPro BBPI', deskripsi: 'Konten akan diisi oleh admin.', gambar_url: '' } },
+        { key: 'skema', fallback: { judul: 'Tipe 1b / Tipe 3', deskripsi: 'Konten akan diisi oleh admin.' } },
+        { key: 'alur', fallback: { judul: 'Alur Proses Sertifikasi', deskripsi: 'Konten akan diisi oleh admin.' } },
+        { key: 'produk', fallback: { judul: 'Produk yang Dapat Disertifikasi', deskripsi: 'Konten akan diisi oleh admin.' } },
+        { key: 'dokumen', fallback: { judul: 'Dokumen Persyaratan', deskripsi: 'Konten akan diisi oleh admin.' } },
+      ]}
     />
   )
 }
 ```
-
-Same pattern for SertifikasiTipe5.
 
 - [ ] **Step 5: Implement RuangLingkup page**
 

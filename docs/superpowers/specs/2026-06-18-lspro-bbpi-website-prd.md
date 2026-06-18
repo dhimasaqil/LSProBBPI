@@ -26,7 +26,7 @@ Membuat website corporate profile untuk **LSPro Balai Besar Penangkapan Ikan (BB
 
 ### 1.3 Scope & Exclusions
 **Included:**
-- 17 halaman publik
+- 15 halaman publik
 - Admin CMS dengan form fields terstruktur
 - Download formulir via Google Drive links
 - Form pendaftaran & kuesioner via Google Forms embed
@@ -56,9 +56,8 @@ Membuat website corporate profile untuk **LSPro Balai Besar Penangkapan Ikan (BB
 | 7 | `/informasi/hak-kewajiban` | Hak dan Kewajiban | Hak klien (7 poin) + Kewajiban klien (15 poin) |
 | 8 | `/informasi/sumber-pendanaan` | Sumber Pendanaan | Modal disetor, pendapatan jasa, pengelolaan, pengawasan dana |
 | 9 | `/informasi/biaya-sertifikasi` | Biaya Sertifikasi | Rincian biaya berdasarkan skema, lokasi, HOK, faktur |
-| 10 | `/layanan/sertifikasi-tipe-1` | Alur Sertifikasi Tipe 1 | Diagram dan prosedur alur sertifikasi tipe 1 |
-| 11 | `/layanan/sertifikasi-tipe-5` | Alur Sertifikasi Tipe 5 | Diagram dan prosedur alur sertifikasi tipe 5 |
-| 12 | `/ruang-lingkup` | Ruang Lingkup | Lingkup sertifikasi terakreditasi BBPI |
+| 10 | `/layanan/sertifikasi` | Skema Sertifikasi | Skema sertifikasi Tipe 1b/3 untuk benang dan jaring alat penangkapan ikan |
+| 11 | `/ruang-lingkup` | Ruang Lingkup | Lingkup sertifikasi terakreditasi BBPI |
 | 13 | `/formulir/download` | Download Formulir Kosong | Tabel 16+ kategori formulir dengan tombol download via Google Drive |
 | 14 | `/formulir/pendaftaran` | Formulir Pendaftaran | Embed Google Form untuk pengajuan sertifikasi |
 | 15 | `/kuesioner` | Kuesioner Kepuasan Pelanggan | Embed Google Form untuk kuesioner |
@@ -68,12 +67,12 @@ Membuat website corporate profile untuk **LSPro Balai Besar Penangkapan Ikan (BB
 
 | # | Path | Nama | Fungsi |
 |---|------|------|--------|
-| 17 | `/admin` | Login | Supabase Auth email/password |
-| 18 | `/admin/dashboard` | Dashboard | Ringkasan halaman, quick links |
-| 19 | `/admin/halaman/:page` | Content Editor | Form fields per section per halaman |
-| 20 | `/admin/form-download` | Form Download Editor | Kelola link Google Drive per form |
-| 21 | `/admin/google-forms` | Google Forms Editor | Kelola Google Form ID untuk pendaftaran & kuesioner |
-| 22 | `/admin/settings` | Pengaturan | Ganti password admin |
+| 16 | `/admin` | Login | Supabase Auth email/password |
+| 17 | `/admin/dashboard` | Dashboard | Ringkasan halaman, quick links |
+| 18 | `/admin/halaman/:page` | Content Editor | Form fields per section per halaman |
+| 19 | `/admin/form-download` | Form Download Editor | Kelola link Google Drive per form |
+| 20 | `/admin/google-forms` | Google Forms Editor | Kelola Google Form ID untuk pendaftaran & kuesioner |
+| 21 | `/admin/settings` | Pengaturan | Ganti password admin |
 
 ---
 
@@ -272,8 +271,7 @@ src/
 │   │   ├── SumberPendanaan.tsx
 │   │   └── BiayaSertifikasi.tsx
 │   ├── layanan/
-│   │   ├── SertifikasiTipe1.tsx
-│   │   └── SertifikasiTipe5.tsx
+│   │   └── Sertifikasi.tsx
 │   ├── RuangLingkup.tsx
 │   ├── FormDownload.tsx
 │   ├── FormPendaftaran.tsx
@@ -374,7 +372,7 @@ VITE_SUPABASE_ANON_KEY=your-anon-key
 
 ## 10. Acceptance Criteria
 
-- [ ] Semua 16 halaman publik dapat diakses dan ditampilkan
+- [ ] Semua 15 halaman publik dapat diakses dan ditampilkan
 - [ ] Admin dapat login via `/admin`
 - [ ] Admin dapat mengedit semua konten halaman melalui form fields
 - [ ] Admin dapat mengelola link Google Drive untuk form download
