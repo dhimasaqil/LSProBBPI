@@ -124,7 +124,7 @@ export default function Kontak() {
             <div className="bg-neutral-100 rounded-2xl overflow-hidden aspect-video">
               <iframe
                 title={`Lokasi ${SITE_NAME}`}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.1234567890123!2d110.12345678901234!3d-6.123456789012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDcnMjQuNCJTIDExMMKwMDcnMjQuNCJF!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4455.574735350654!2d110.41567317499666!3d-6.948902993051298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f49bc75f9173%3A0xe9928af8323f8d28!2sBalai%20Besar%20Penangkapan%20Ikan!5e1!3m2!1sid!2sid!4v1782096544396!5m2!1sid!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -134,7 +134,7 @@ export default function Kontak() {
               />
             </div>
             <p className="mt-4 text-sm text-neutral-500">
-              Peta di atas menunjukkan lokasi perkiraan. Silakan hubungi kami untuk arahan lokasi yang lebih akurat.
+              Lokasi Balai Besar Penangkapan Ikan, Semarang.
             </p>
           </div>
         </div>
