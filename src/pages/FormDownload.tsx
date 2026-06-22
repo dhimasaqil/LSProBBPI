@@ -9,9 +9,8 @@ const defaultForms = [
   { slug: 'fr-7-2-2', label: 'FR.7.2-2 Pernyataan Kesesuaian' },
   { slug: 'fr-7-2-3', label: 'FR.7.2-3 Pernyataan Persetujuan Pemohon' },
   { slug: 'fr-7-2-4', label: 'FR.7.2-4 Daftar Isian Pemohon Sertifikasi' },
-  { slug: 'fr-4-1-1', label: 'FR.4.1-1 Surat Perjanjian Sertifikasi' },
-  { slug: 'fr-4-1-2', label: 'FR.4.1-2 Surat Perjanjian Penggunaan Lisensi' },
-  { slug: 'fr-7-11', label: 'FR.7.11 Surat Pembekuan/Penghentian/Pencabutan' },
+  { slug: 'fr-7-13-1', label: 'FR.7.13-1 Formulir Keluhan' },
+  { slug: 'fr-7-13-2', label: 'FR.7.13-2 Formulir Banding' },
 ]
 
 export default function FormDownload() {
