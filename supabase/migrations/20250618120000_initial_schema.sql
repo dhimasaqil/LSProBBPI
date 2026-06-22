@@ -26,14 +26,6 @@ CREATE TABLE IF NOT EXISTS form_downloads (
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- Google forms table
-CREATE TABLE IF NOT EXISTS google_forms (
-  id SERIAL PRIMARY KEY,
-  slug VARCHAR(100) NOT NULL UNIQUE,
-  form_id VARCHAR(255) NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
 -- Updated at trigger for site_content
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
@@ -52,7 +44,6 @@ CREATE TRIGGER update_site_content_updated_at
 -- Row Level Security (RLS)
 ALTER TABLE site_content ENABLE ROW LEVEL SECURITY;
 ALTER TABLE form_downloads ENABLE ROW LEVEL SECURITY;
-ALTER TABLE google_forms ENABLE ROW LEVEL SECURITY;
 
 -- Public read access
 CREATE POLICY "Public can read site_content"
@@ -61,10 +52,6 @@ CREATE POLICY "Public can read site_content"
 
 CREATE POLICY "Public can read form_downloads"
   ON form_downloads FOR SELECT
-  USING (true);
-
-CREATE POLICY "Public can read google_forms"
-  ON google_forms FOR SELECT
   USING (true);
 
 -- Authenticated users can manage all tables
@@ -78,7 +65,4 @@ CREATE POLICY "Authenticated users can manage form_downloads"
   USING (auth.role() = 'authenticated')
   WITH CHECK (auth.role() = 'authenticated');
 
-CREATE POLICY "Authenticated users can manage google_forms"
-  ON google_forms FOR ALL
-  USING (auth.role() = 'authenticated')
-  WITH CHECK (auth.role() = 'authenticated');
+

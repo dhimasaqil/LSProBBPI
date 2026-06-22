@@ -17,13 +17,6 @@ export interface FormDownload {
   created_at: string
 }
 
-export interface GoogleForm {
-  id: number
-  slug: string
-  form_id: string
-  created_at: string
-}
-
 export interface SiteSetting {
   id: number
   key: string

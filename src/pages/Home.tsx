@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, ShieldCheck, FileText, Users, Award, ClipboardCheck, Phone } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Users, Award, ClipboardCheck, Phone } from 'lucide-react'
 import { CONTACT, SITE_NAME, SITE_TAGLINE } from '../constants'
 import CtaStrip from '../components/ui/CtaStrip'
 
@@ -15,12 +15,6 @@ const services = [
     title: 'Ruang Lingkup',
     description: 'Informasi lengkap mengenai ruang lingkup sertifikasi dan produk-produk yang dapat disertifikasi.',
     path: '/ruang-lingkup',
-  },
-  {
-    icon: FileText,
-    title: 'Formulir Pendaftaran',
-    description: 'Ajukan permohonan sertifikasi secara online melalui formulir pendaftaran yang telah disediakan.',
-    path: '/formulir/pendaftaran',
   },
 ]
 
@@ -71,10 +65,10 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="/formulir/pendaftaran"
+                  to="/formulir/download"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-neutral-900 font-semibold rounded-lg hover:bg-accent/90 transition-colors"
                 >
-                  Ajukan Sertifikasi
+                  Download Formulir
                   <ArrowRight className="w-5 h-5" />
                 </Link>
                 <Link
@@ -164,7 +158,7 @@ export default function Home() {
               nasional dan internasional.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {services.map(service => (
               <Link
                 key={service.path}

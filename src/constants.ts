@@ -39,14 +39,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: 'Ruang Lingkup', path: '/ruang-lingkup' },
-  {
-    label: 'Formulir',
-    children: [
-      { label: 'Download Formulir Kosong', path: '/formulir/download' },
-      { label: 'Formulir Pendaftaran', path: '/formulir/pendaftaran' },
-    ],
-  },
-  { label: 'Kuesioner', path: '/kuesioner' },
+  { label: 'Download Formulir', path: '/formulir/download' },
   { label: 'Kontak', path: '/kontak' },
 ]
 
@@ -69,8 +62,6 @@ export const FOOTER_LINKS = {
   ],
   formulir: [
     { label: 'Download Formulir', path: '/formulir/download' },
-    { label: 'Formulir Pendaftaran', path: '/formulir/pendaftaran' },
-    { label: 'Kuesioner', path: '/kuesioner' },
   ],
 }
 

@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { LayoutDashboard, FileText, Download, FormInput, Settings, LogOut, Menu } from 'lucide-react'
+import { LayoutDashboard, FileText, Download, Settings, LogOut, Menu } from 'lucide-react'
 import { useAuth } from '../../hooks/useAuth'
 import { useState } from 'react'
 import { ADMIN_PAGES, SITE_NAME } from '../../constants'
@@ -12,7 +12,6 @@ const navItems = [
     icon: FileText,
   })),
   { to: '/admin/form-download', label: 'Form Download', icon: Download },
-  { to: '/admin/google-forms', label: 'Google Forms', icon: FormInput },
   { to: '/admin/settings', label: 'Pengaturan', icon: Settings },
 ]
 

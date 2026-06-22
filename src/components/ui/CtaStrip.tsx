@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Phone } from 'lucide-react'
+import { Download, Phone } from 'lucide-react'
 import { CONTACT } from '../../constants'
 
 export default function CtaStrip() {
@@ -12,16 +12,16 @@ export default function CtaStrip() {
               Siap Mengajukan Sertifikasi?
             </h2>
             <p className="text-neutral-600 max-w-xl">
-              Hubungi tim kami untuk konsultasi awal atau ajukan permohonan sertifikasi produk perikanan Anda.
+              Download formulir permohonan, isi secara lengkap, dan kirimkan ke kami. Tim kami siap membantu proses sertifikasi produk perikanan Anda.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              to="/formulir/pendaftaran"
+              to="/formulir/download"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors"
             >
-              Ajukan Sertifikasi
-              <ArrowRight className="w-5 h-5" />
+              <Download className="w-5 h-5" />
+              Download Formulir
             </Link>
             <a
               href={`https://wa.me/${CONTACT.whatsapp.replace(/\s/g, '')}`}

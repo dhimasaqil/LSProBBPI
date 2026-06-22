@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-import { FileText, Download, FormInput, Settings, ExternalLink } from 'lucide-react'
+import { FileText, Download, Settings, ExternalLink } from 'lucide-react'
 import { ADMIN_PAGES } from '../../constants'
 
 const quickLinks = [
   { to: '/admin/form-download', label: 'Kelola Form Download', icon: Download, desc: 'Atur link Google Drive formulir' },
-  { to: '/admin/google-forms', label: 'Kelola Google Forms', icon: FormInput, desc: 'Atur embed form pendaftaran & kuesioner' },
   { to: '/admin/settings', label: 'Pengaturan Akun', icon: Settings, desc: 'Ubah password admin' },
 ]
 

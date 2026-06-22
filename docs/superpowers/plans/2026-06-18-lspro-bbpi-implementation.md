@@ -2,9 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build the LSPro BBPI corporate website with 16 public pages, Google Forms integration, Google Drive form downloads, and Admin CMS — React + Vite + TypeScript + Tailwind + Supabase, deployed to Vercel.
+> **CHANGELOG (22 Juni 2026):** Halaman Formulir Pendaftaran dan Kuesioner Kepuasan Pelanggan dihapus. Tidak ada lagi Google Forms embed. Semua form diunduh manual dari halaman Download Formulir. Tabel `google_forms` dihapus dari schema. Struktur organisasi menggunakan gambar dari `public/Struktur Organisasi LSPro.png`. Total halaman publik menjadi 13.
 
-**Architecture:** Single-page React app with React Router for navigation. All dynamic content stored in Supabase tables (`site_content`, `form_downloads`, `google_forms`). Admin panel uses Supabase Auth for single-admin login. Google Drive file IDs stored in Supabase, direct download URLs generated client-side. Google Forms embedded via iframe.
+**Goal:** Build the LSPro BBPI corporate website with 13 public pages, Google Drive form downloads, and Admin CMS — React + Vite + TypeScript + Tailwind + Supabase, deployed to Vercel.
+
+**Architecture:** Single-page React app with React Router for navigation. Dynamic content stored in Supabase tables (`site_content`, `form_downloads`). Admin panel uses Supabase Auth for single-admin login. Google Drive file URLs stored in Supabase, direct download URLs generated client-side.
 
 **Tech Stack:** React 18, Vite, TypeScript, Tailwind CSS, React Router v6, Supabase JS Client, Lucide React
 

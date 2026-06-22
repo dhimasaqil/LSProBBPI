@@ -21,15 +21,14 @@ Membuat website corporate profile untuk **LSPro Balai Besar Penangkapan Ikan (BB
 | CMS | Supabase (`site_content` table) |
 | Deployment | Vercel |
 | Icons | Lucide React |
-| Forms | Google Forms (embed) |
+
 | File Storage | Google Drive (direct download) |
 
 ### 1.3 Scope & Exclusions
 **Included:**
-- 15 halaman publik
+- 13 halaman publik
 - Admin CMS dengan form fields terstruktur
 - Download formulir via Google Drive links
-- Form pendaftaran & kuesioner via Google Forms embed
 - Supabase Auth untuk 1 admin
 
 **Excluded:**
@@ -58,21 +57,18 @@ Membuat website corporate profile untuk **LSPro Balai Besar Penangkapan Ikan (BB
 | 9 | `/informasi/biaya-sertifikasi` | Biaya Sertifikasi | Rincian biaya berdasarkan skema, lokasi, HOK, faktur |
 | 10 | `/layanan/sertifikasi` | Skema Sertifikasi | Skema sertifikasi Tipe 1b/3 untuk benang dan jaring alat penangkapan ikan |
 | 11 | `/ruang-lingkup` | Ruang Lingkup | Lingkup sertifikasi terakreditasi BBPI |
-| 13 | `/formulir/download` | Download Formulir Kosong | Tabel 16+ kategori formulir dengan tombol download via Google Drive |
-| 14 | `/formulir/pendaftaran` | Formulir Pendaftaran | Embed Google Form untuk pengajuan sertifikasi |
-| 15 | `/kuesioner` | Kuesioner Kepuasan Pelanggan | Embed Google Form untuk kuesioner |
-| 16 | `/kontak` | Kontak Kami | Alamat, telepon, WhatsApp, email, Google Maps embed, media sosial |
+| 12 | `/formulir/download` | Download Formulir Kosong | Tabel formulir dengan tombol download via Google Drive |
+| 13 | `/kontak` | Kontak Kami | Alamat, telepon, WhatsApp, email, Google Maps embed, media sosial |
 
 ### 2.2 Halaman Admin
 
 | # | Path | Nama | Fungsi |
 |---|------|------|--------|
-| 16 | `/admin` | Login | Supabase Auth email/password |
-| 17 | `/admin/dashboard` | Dashboard | Ringkasan halaman, quick links |
-| 18 | `/admin/halaman/:page` | Content Editor | Form fields per section per halaman |
-| 19 | `/admin/form-download` | Form Download Editor | Kelola link Google Drive per form |
-| 20 | `/admin/google-forms` | Google Forms Editor | Kelola Google Form ID untuk pendaftaran & kuesioner |
-| 21 | `/admin/settings` | Pengaturan | Ganti password admin |
+| 14 | `/admin` | Login | Supabase Auth email/password |
+| 15 | `/admin/dashboard` | Dashboard | Ringkasan halaman, quick links |
+| 16 | `/admin/halaman/:page` | Content Editor | Form fields per section per halaman |
+| 17 | `/admin/form-download` | Form Download Editor | Kelola link Google Drive per form |
+| 18 | `/admin/settings` | Pengaturan | Ganti password admin |
 
 ---
 
@@ -148,21 +144,7 @@ CREATE TABLE form_downloads (
 );
 ```
 
-### 4.3 `google_forms` — Link Google Forms embed
-
-```sql
-CREATE TABLE google_forms (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  nama_form TEXT NOT NULL,         -- e.g. 'Pendaftaran Sertifikasi'
-  google_form_id TEXT NOT NULL,    -- ID dari share link Google Form
-  halaman TEXT NOT NULL,           -- 'pendaftaran' atau 'kuesioner'
-  created_at TIMESTAMPTZ DEFAULT NOW(),
-  updated_at TIMESTAMPTZ DEFAULT NOW(),
-  UNIQUE (halaman)
-);
-```
-
-### 4.4 Row Level Security (RLS)
+### 4.3 Row Level Security (RLS)
 
 ```sql
 -- site_content: Authenticated (admin) can read/write, public can read
@@ -170,14 +152,10 @@ ALTER TABLE site_content ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Public read site_content" ON site_content FOR SELECT USING (true);
 CREATE POLICY "Admin write site_content" ON site_content FOR ALL USING (auth.role() = 'authenticated');
 
--- Same policies for form_downloads and google_forms
+-- Same policies for form_downloads
 ALTER TABLE form_downloads ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Public read form_downloads" ON form_downloads FOR SELECT USING (true);
 CREATE POLICY "Admin write form_downloads" ON form_downloads FOR ALL USING (auth.role() = 'authenticated');
-
-ALTER TABLE google_forms ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Public read google_forms" ON google_forms FOR SELECT USING (true);
-CREATE POLICY "Admin write google_forms" ON google_forms FOR ALL USING (auth.role() = 'authenticated');
 ```
 
 ### 4.5 Storage Buckets
@@ -194,7 +172,6 @@ CREATE POLICY "Admin write google_forms" ON google_forms FOR ALL USING (auth.rol
 ```
 Browser → React Router → Page Component → Supabase Query (`site_content`) → Render Content
                                             → Supabase Query (`form_downloads`) → Build Download Table
-                                            → Supabase Query (`google_forms`) → Embed Google Form iframe
 ```
 
 ### 5.2 Admin Flow
@@ -204,7 +181,6 @@ Browser → /admin → Supabase Auth (email/password) → JWT Token → Set Sess
                               /admin/halaman/:page → GET `site_content` → Tampilkan form fields
                                                    → POST `site_content` → Simpan perubahan
                               /admin/form-download → GET/POST `form_downloads` → Kelola link
-                              /admin/google-forms  → GET/POST `google_forms` → Kelola form ID
 ```
 
 ### 5.3 Google Drive Download Logic
@@ -217,19 +193,6 @@ Generate download URL: https://drive.google.com/uc?export=download&id=1AbCdEfGhI
                                                  ↓
 Tombol Download → window.open(download_url, '_blank') atau <a href download>
 ```
-
-### 5.4 Google Form Embed Logic
-```
-Admin input: https://docs.google.com/forms/d/e/1FAIpQLSd.../viewform
-                                                 ↓
-Extract FORM_ID: 1FAIpQLSd...
-                                                 ↓
-Generate embed URL: https://docs.google.com/forms/d/e/1FAIpQLSd.../viewform?embedded=true
-                                                 ↓
-<iframe src={embed_url} width="100%" height={800} />
-```
-
----
 
 ## 6. Component Architecture
 
@@ -251,7 +214,6 @@ src/
 │   ├── ui/
 │   │   ├── SectionRenderer.tsx        # Render konten dari `site_content`
 │   │   ├── DownloadButton.tsx         # Generate Google Drive download link
-│   │   ├── GoogleFormEmbed.tsx        # Embed Google Form iframe
 │   │   ├── PageHero.tsx               # Hero section standard per halaman
 │   │   └── Breadcrumb.tsx             # Navigasi breadcrumb
 │   └── admin/
@@ -274,20 +236,16 @@ src/
 │   │   └── Sertifikasi.tsx
 │   ├── RuangLingkup.tsx
 │   ├── FormDownload.tsx
-│   ├── FormPendaftaran.tsx
-│   ├── Kuesioner.tsx
 │   ├── Kontak.tsx
 │   └── admin/
 │       ├── Login.tsx
 │       ├── Dashboard.tsx
 │       ├── ContentEditor.tsx
 │       ├── FormDownloadEditor.tsx
-│       ├── GoogleFormEditor.tsx
 │       └── Settings.tsx
 ├── hooks/
 │   ├── useSiteContent.ts              # Fetch site_content per (page, section)
-│   ├── useFormDownloads.ts            # Fetch form_downloads per kategori
-│   └── useGoogleForms.ts              # Fetch google_forms
+│   └── useFormDownloads.ts            # Fetch form_downloads per kategori
 └── utils/
     ├── constants.ts                    # Page list, nav structure
     └── googleDrive.ts                  # Extract ID, generate download URL
@@ -316,14 +274,6 @@ src/
 4. Admin paste full Google Drive URL ke field yang sesuai
 5. Klik "Simpan Semua"
 
-### 7.4 Kelola Google Forms
-1. Dashboard → "Kelola Google Forms"
-2. Dua field: Pendaftaran Sertifikasi, Kuesioner
-3. Admin paste Google Form ID
-4. Klik "Simpan"
-
----
-
 ## 8. Halaman Kritis
 
 ### 8.1 Form Download Page (`/formulir/download`)
@@ -334,16 +284,11 @@ src/
 - Data diambil dari tabel `form_downloads` di Supabase
 - Admin mengelola link via `/admin/form-download`
 
-### 8.2 Form Pendaftaran Page (`/formulir/pendaftaran`)
+### 8.2 Kontak Page (`/kontak`)
 
-- Embed Google Form via iframe
-- Google Form ID diambil dari tabel `google_forms` (Supabase)
-- Admin bisa ganti form kapan saja via `/admin/google-forms`
-
-### 8.3 Kuesioner Page (`/kuesioner`)
-
-- Embed Google Form via iframe
-- Sama seperti Form Pendaftaran, beda halaman parameter
+- Menampilkan informasi kontak lengkap: alamat, telepon, WhatsApp, email
+- Menampilkan peta lokasi (Google Maps embed)
+- Menyediakan link media sosial LSPro BBPI
 
 ---
 
@@ -372,13 +317,11 @@ VITE_SUPABASE_ANON_KEY=your-anon-key
 
 ## 10. Acceptance Criteria
 
-- [ ] Semua 15 halaman publik dapat diakses dan ditampilkan
+- [ ] Semua 13 halaman publik dapat diakses dan ditampilkan
 - [ ] Admin dapat login via `/admin`
 - [ ] Admin dapat mengedit semua konten halaman melalui form fields
 - [ ] Admin dapat mengelola link Google Drive untuk form download
-- [ ] Admin dapat mengelola link Google Forms untuk pendaftaran & kuesioner
 - [ ] Tombol download form mengunduh langsung file dari Google Drive
-- [ ] Google Forms embed berfungsi di halaman pendaftaran & kuesioner
 - [ ] Navigasi mobile-responsive
 - [ ] Website terdeploy di Vercel dan dapat diakses publik
 - [ ] Lighthouse score ≥ 85
@@ -392,7 +335,7 @@ VITE_SUPABASE_ANON_KEY=your-anon-key
 | 1 | Setup | Init Vite project, Tailwind config, Supabase setup, routing |
 | 2 | Layout + Home | Header, Footer, Navigation, responsive layout, Home page |
 | 3 | Halaman Informasi | 5 halaman informasi + 2 halaman layanan |
-| 4 | Form Pages | Download page (tabel + Google Drive logic), Pendaftaran (embed), Kuesioner (embed) |
-| 5 | Admin CMS | Login, Dashboard, Content Editor, Form Download Editor, Google Forms Editor |
+| 4 | Form Page | Download page (tabel + Google Drive direct download) |
+| 5 | Admin CMS | Login, Dashboard, Content Editor, Form Download Editor |
 | 6 | Remaining Pages | Ruang Lingkup, Struktur Organisasi, Kontak, polish semua halaman |
 | 7 | Testing + Deploy | Responsive testing, bug fixing, Vercel deployment |
