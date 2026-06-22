@@ -41,25 +41,26 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative bg-primary overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-dark" />
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-accent rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <img
+          src="/Background.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/85 via-primary/70 to-primary/55" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="max-w-2xl">
             <div className="text-white">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
                 <Award className="w-4 h-4" />
                 Lembaga Sertifikasi Produk
               </div>
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6 drop-shadow-lg">
                 {SITE_NAME}
                 <span className="block text-accent text-2xl lg:text-3xl font-semibold mt-2">
                   {SITE_TAGLINE}
                 </span>
               </h1>
-              <p className="text-lg text-white/90 mb-8 max-w-xl leading-relaxed">
+              <p className="text-lg text-white mb-8 max-w-xl leading-relaxed drop-shadow-md">
                 Lembaga sertifikasi produk perikanan yang menyelenggarakan sertifikasi benang dan
                 jaring untuk alat penangkapan ikan dengan standar kualitas dan integritas tinggi.
               </p>
@@ -73,19 +74,10 @@ export default function Home() {
                 </Link>
                 <Link
                   to="/tentang-kami"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/15 text-white font-semibold rounded-lg hover:bg-white/25 transition-colors backdrop-blur-sm"
                 >
                   Pelajari Lebih Lanjut
                 </Link>
-              </div>
-            </div>
-            <div className="hidden lg:flex justify-center">
-              <div className="bg-white p-8 rounded-2xl shadow-2xl">
-                <img
-                  src="/logo-bbpi.png"
-                  alt="Logo LSPro BBPI"
-                  className="w-64 h-auto object-contain"
-                />
               </div>
             </div>
           </div>
