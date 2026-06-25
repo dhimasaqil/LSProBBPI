@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react'
+import { Menu, X, ChevronDown, Mail } from 'lucide-react'
 import { NAV_ITEMS, CONTACT, SITE_NAME } from '../../constants'
 
 function NavDropdown({ item }: { item: { label: string; children?: { label: string; path: string }[] } }) {
@@ -60,10 +60,6 @@ export default function Header() {
       <div className="bg-primary text-white text-xs py-2 hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <a href={`tel:${CONTACT.phone}`} className="flex items-center gap-1 hover:text-white/80">
-              <Phone className="w-3 h-3" />
-              <span>{CONTACT.phone}</span>
-            </a>
             <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-1 hover:text-white/80">
               <Mail className="w-3 h-3" />
               <span>{CONTACT.email}</span>

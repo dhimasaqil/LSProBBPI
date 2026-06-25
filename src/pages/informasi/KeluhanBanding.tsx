@@ -27,7 +27,7 @@ export default function KeluhanBanding() {
               <li>Hasil penanganan keluhan atau banding akan disampaikan secara tertulis kepada pemohon.</li>
               <li>LSPro BBPI menjamin bahwa proses penanganan keluhan dan banding tidak akan berdampak negatif terhadap objektivitas keputusan sertifikasi.</li>
             </ol>
-            <p>Untuk informasi lebih lanjut, silakan hubungi kami melalui email <strong>lspro.bbpi@gmail.com</strong> atau telepon <strong>(024) 3583065, 3583068</strong>.</p>`,
+            <p>Untuk informasi lebih lanjut, silakan hubungi kami melalui email <strong>lspro.bbpi@gmail.com</strong> atau WhatsApp <strong>0859 3470 8829</strong>.</p>`,
           },
         },
       ]}

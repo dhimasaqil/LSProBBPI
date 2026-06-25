@@ -51,7 +51,7 @@ export default function Sertifikasi() {
             deskripsi: `<p>Produk dalam ruang lingkup sertifikasi LSPro BBPI meliputi:</p>
             <ul>
               <li>Benang Poliamida (PA) Monofilamen (SNI 8577:2024)</li>
-              <li>Jaring Poliamida Monofilamen (SNI 8795:2019)</li>
+              <li>Jaring Poliamida Monofilamen (SNI 8795:2025)</li>
               <li>Benang Poliamida Multifilamen (SNI 8796:2019)</li>
               <li>Benang Polietilena (PE) Multifilamen (SNI 8953:2021)</li>
               <li>Jaring Poliamida (PA) Multifilamen (SNI 8954:2021)</li>

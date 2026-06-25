@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react'
+import { MapPin, Mail, MessageCircle } from 'lucide-react'
 import { SITE_NAME, SITE_TAGLINE, CONTACT, FOOTER_LINKS } from '../../constants'
 
 export default function Footer() {
@@ -105,15 +105,9 @@ export default function Footer() {
                 <span>{CONTACT.address}</span>
               </li>
               <li>
-                <a href={`tel:${CONTACT.phone}`} className="flex items-center gap-3 text-sm text-neutral-300 hover:text-white">
-                  <Phone className="w-5 h-5 text-primary shrink-0" />
-                  <span>{CONTACT.phone}</span>
-                </a>
-              </li>
-              <li>
                 <a href={`https://wa.me/${CONTACT.whatsapp.replace(/\s/g, '')}`} className="flex items-center gap-3 text-sm text-neutral-300 hover:text-white">
                   <MessageCircle className="w-5 h-5 text-primary shrink-0" />
-                  <span>{CONTACT.whatsapp}</span>
+                  <span>+62 859-3470-8829</span>
                 </a>
               </li>
               <li>

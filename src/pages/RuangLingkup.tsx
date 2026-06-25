@@ -35,7 +35,7 @@ export default function RuangLingkup() {
                 </tr>
                 <tr class="border-b bg-neutral-50">
                   <td class="p-3">2</td>
-                  <td class="p-3">SNI 8795:2019</td>
+                  <td class="p-3">SNI 8795:2025</td>
                   <td class="p-3">Alat Penangkapan Ikan – Jaring Poliamida Monofilamen</td>
                 </tr>
                 <tr class="border-b">

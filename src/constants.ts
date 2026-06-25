@@ -7,8 +7,8 @@ export const SITE_DESCRIPTION = 'Lembaga Sertifikasi Produk BBPI - Balai Besar P
 export const CONTACT = {
   address: 'Jl. Yos Sudarso No. 1, Kelurahan Kalibaru Barat, Kecamatan Tanjung Emas, Kota Semarang, Provinsi Jawa Tengah 50175',
   shortAddress: 'Jl. Yos Sudarso, Kalibaru Barat, Tanjung Emas, Semarang 50175',
-  phone: '(024) 3583065, 3583068',
-  whatsapp: '0859 3470 8829',
+  phone: '',
+  whatsapp: '6285934708829',
   email: 'lspro.bbpi@gmail.com',
   facebook: 'https://facebook.com/lsprobbpi',
   instagram: 'https://instagram.com/lspro_bbpi',

@@ -1,7 +1,7 @@
 import PageHero from '../components/ui/PageHero'
 import CtaStrip from '../components/ui/CtaStrip'
 import { CONTACT, SITE_NAME } from '../constants'
-import { MapPin, Phone, Mail, MessageCircle, Clock } from 'lucide-react'
+import { MapPin, Mail, MessageCircle, Clock } from 'lucide-react'
 
 export default function Kontak() {
   return (
@@ -28,18 +28,6 @@ export default function Kontak() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-neutral-900">Telepon</h3>
-                  <a href={`tel:${CONTACT.phone}`} className="text-neutral-600 hover:text-primary">
-                    {CONTACT.phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
                   <MessageCircle className="w-6 h-6" />
                 </div>
                 <div>
@@ -48,7 +36,7 @@ export default function Kontak() {
                     href={`https://wa.me/${CONTACT.whatsapp.replace(/\s/g, '')}`}
                     className="text-neutral-600 hover:text-primary"
                   >
-                    {CONTACT.whatsapp}
+                    +62 859-3470-8829
                   </a>
                 </div>
               </div>

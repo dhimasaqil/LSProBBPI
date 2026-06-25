@@ -53,7 +53,6 @@ export default function TentangKami() {
             judul: 'Lokasi',
             deskripsi: `<p>LSPro BBPI berlokasi di Jalan Yos Sudarso, Kelurahan Kalibaru Barat, Kecamatan Tanjung Emas, Kota Semarang, Provinsi Jawa Tengah, kode pos 50175.</p>
             <ul>
-              <li>Telepon: (024) 3583065, 3583068</li>
               <li>WhatsApp: 0859 3470 8829</li>
               <li>Email: lspro.bbpi@gmail.com</li>
               <li>Instagram: @lspro_bbpi</li>

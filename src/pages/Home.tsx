@@ -215,7 +215,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg hover:bg-neutral-100 transition-colors"
             >
               <Phone className="w-5 h-5" />
-              {CONTACT.whatsapp}
+              +62 859-3470-8829
             </a>
           </div>
         </div>
