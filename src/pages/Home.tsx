@@ -61,7 +61,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-lg text-white mb-8 max-w-xl leading-relaxed drop-shadow-md">
-                Lembaga sertifikasi produk sarana penangkapan ikan yang menyelenggarakan sertifikasi benang, jaring dan kapal berbahan FRP ukuran 3 GT dengan standar kualitas dan integritas tingg
+                Lembaga sertifikasi produk sarana penangkapan ikan yang menyelenggarakan sertifikasi benang, jaring dan kapal berbahan FRP ukuran 3 GT dengan standar kualitas dan integritas tinggi
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
