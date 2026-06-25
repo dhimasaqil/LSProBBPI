@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <img src="/logo-bbpi.png" alt="" className="h-14 w-auto object-contain bg-white rounded p-1" />
+              <img src="/Logo LSPRO.jpeg" alt="" className="h-14 w-auto object-contain bg-white rounded p-1" />
               <div>
                 <div className="font-bold text-lg leading-tight">{SITE_NAME}</div>
                 <div className="text-xs text-neutral-400">{SITE_TAGLINE}</div>

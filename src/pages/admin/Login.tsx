@@ -33,7 +33,7 @@ export default function Login() {
     <div className="min-h-screen bg-neutral-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
         <div className="text-center mb-8">
-          <img src="/logo-bbpi.png" alt="LSPro BBPI" className="h-16 w-auto mx-auto mb-4" />
+          <img src="/Logo LSPRO.jpeg" alt="LSPro BBPI" className="h-16 w-auto mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-neutral-900">Admin Login</h1>
           <p className="text-neutral-500 text-sm mt-1">Masuk ke panel administrasi LSPro BBPI</p>
         </div>

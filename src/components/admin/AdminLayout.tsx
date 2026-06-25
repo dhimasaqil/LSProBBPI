@@ -36,7 +36,7 @@ export default function AdminLayout() {
         <div className="h-full flex flex-col">
           <div className="p-6 border-b border-neutral-800">
             <Link to="/admin/dashboard" className="flex items-center gap-3">
-              <img src="/logo-bbpi.png" alt="" className="h-10 w-auto bg-white rounded p-1" />
+              <img src="/Logo LSPRO.jpeg" alt="" className="h-10 w-auto bg-white rounded p-1" />
               <div>
                 <div className="font-bold leading-tight">{SITE_NAME}</div>
                 <div className="text-xs text-neutral-400">Admin</div>

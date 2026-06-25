@@ -78,7 +78,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             <Link to="/" className="flex items-center gap-3">
               <img
-                src="/logo-bbpi.png"
+                src="/Logo LSPRO.jpeg"
                 alt="Logo LSPro BBPI"
                 className="h-12 w-auto object-contain"
               />
