@@ -13,7 +13,7 @@ interface PageHeroProps {
   backgroundImage?: string
 }
 
-export default function PageHero({ title, breadcrumbs, description, backgroundImage = '/Background.jpg' }: PageHeroProps) {
+export default function PageHero({ title, breadcrumbs, description, backgroundImage = '/Background Update.jpeg' }: PageHeroProps) {
   return (
     <section
       className="relative bg-primary py-16 lg:py-24 overflow-hidden"

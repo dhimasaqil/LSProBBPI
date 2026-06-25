@@ -42,7 +42,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative bg-primary overflow-hidden">
         <img
-          src="/Background.jpg"
+          src="/Background Update.jpeg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
